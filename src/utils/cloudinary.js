@@ -122,6 +122,22 @@ const cloudinaryPrivateDownloadUrl = (publicId, resource_type, format) => {
 };
 
 // Provides TIME LIMITED streamable signed url for authenticated uploads
+// const cloudinaryPrivateStreamUrl = (
+//     publicId,
+//     resource_type,
+//     format,
+//     expires_at
+// ) => {
+//     const options = {
+//         type: "authenticated", // Use 'authenticated' type for private videos
+//         resource_type: resource_type,
+//         expires_at: expires_at,
+//         timestamp: 323123123123,
+//     };
+
+//     return cloudinary.utils.private_download_url(publicId, format, options);
+// };
+
 const cloudinaryPrivateStreamUrl = (
     publicId,
     resource_type,
@@ -131,11 +147,10 @@ const cloudinaryPrivateStreamUrl = (
     const options = {
         type: "authenticated", // Use 'authenticated' type for private videos
         resource_type: resource_type,
-        expires_at: expires_at,
-        timestamp: 323123123123,
+        sign_url: true,
     };
 
-    return cloudinary.utils.private_download_url(publicId, format, options);
+    return cloudinary.url(publicId, options);
 };
 
 // Provides m3u8 file signed url for HLS streaming authenticated video uploads

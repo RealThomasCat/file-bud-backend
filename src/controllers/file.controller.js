@@ -59,7 +59,7 @@ const fetchFile = asyncHandler(async (req, res) => {
         !requestedFile.urlExpiresAt ||
         requestedFile.urlExpiresAt < Math.floor(Date.now() / 1000)
     ) {
-        expires_at = Math.floor(Date.now() / 1000) + 3600; // URL expires in 1hr
+        expires_at = Math.floor(Date.now() / 1000) + 3600 * 24; // URL expires in 1day
 
         requestedFile.urlExpiresAt = expires_at; // Update the urlExpiresAt field
         await requestedFile.save(); // Save the changes
