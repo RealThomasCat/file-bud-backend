@@ -491,6 +491,11 @@ const fileThumbnail = asyncHandler(async (req, res) => {
     res.redirect(signed_url);
 });
 
+// To keep render server alive always
+const keepAlive = asyncHandler(async (req, res) => {
+    res.status(200).json(new ApiResponse(200, null, "Server is Alive"));
+});
+
 export {
     fetchFile,
     uploadFile,
@@ -498,4 +503,5 @@ export {
     deleteFile,
     fileThumbnail,
     streamVideo,
+    keepAlive,
 };

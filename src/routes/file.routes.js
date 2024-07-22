@@ -7,6 +7,7 @@ import {
     deleteFile,
     fileThumbnail,
     streamVideo,
+    keepAlive,
 } from "../controllers/file.controller.js";
 import {
     multerErrorHandler,
@@ -29,5 +30,6 @@ router.route("/upload").post(
 router.route("/download").get(verifyJWT, downloadFile);
 router.route("/delete").delete(verifyJWT, deleteFile);
 router.route("/thumbnail/:id").get(verifyJWT, fileThumbnail);
+router.route("/awake").get(keepAlive);
 
 export default router;
