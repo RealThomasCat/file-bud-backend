@@ -370,7 +370,7 @@ const deleteFile = asyncHandler(async (req, res) => {
     if (user.isAccessLimited) {
         throw new ApiError(
             403,
-            "Deletion is not allowed for this user at the moment"
+            "Deletion is not allowed for guest user, Please make a new account"
         );
     }
 
