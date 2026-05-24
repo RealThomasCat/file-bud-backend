@@ -6,6 +6,8 @@ The project is built with Express, MongoDB, and Cloudinary. MongoDB stores users
 
 The backend is designed around file-system-like behavior rather than flat CRUD resources. It works with nested folders, recursive operations, file metadata consistency, temporary local files, external CDN state, signed media delivery, and multi-step flows that need to stay reliable when one part fails.
 
+## [Demo](https://file-bud-frontend.vercel.app/)
+
 ## Features
 
 -   User registration and login with JWT authentication
